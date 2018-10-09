@@ -1,11 +1,11 @@
 npm install
 npm start
-```
+
 
 *Build*
-```
+
 npm run build
-```
+
 
 ## File structure
 ```
