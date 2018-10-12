@@ -17,7 +17,7 @@ class Nav extends Component {
             <p>Dashboard</p>
           </Link>
         </li>
-        <li className={this.isPathActive('/components') || this.state.componentMenuOpen ? 'active' : true}>
+        <li className={this.isPathActive('/components') || this.state.componentMenuOpen ? 'active' : null}>
           <a onClick={() => this.setState({ componentMenuOpen: !this.state.componentMenuOpen })}
             data-toggle="collapse">
             <i className="pe-7s-plugin"></i>
@@ -75,13 +75,13 @@ class Nav extends Component {
             <div>
               <ul className="nav">
                 <li className={this.isPathActive('/tables/regular-tables') ? 'active' : null}>
-                  <Link to="/tables/regular-tables">Regular Table</Link>
+                  <Link to="/tables/regular-tables">Customer</Link>
                 </li>
                 <li className={this.isPathActive('/tables/extended-tables') ? 'active' : null}>
-                  <Link to="/tables/extended-tables">Extended Tables</Link>
+                  <Link to="/tables/extended-tables">Staff</Link>
                 </li>
                 <li className={this.isPathActive('/tables/fixed-data-table') ? 'active' : null}>
-                  <Link to="/tables/react-bootstrap-table">React Bootstrap Table</Link>
+                  <Link to="/tables/react-bootstrap-table">Utilities</Link>
                 </li>
               </ul>
             </div>
@@ -108,13 +108,13 @@ class Nav extends Component {
                   <Link to="/forms/extended-forms">Color/Color Group</Link>
                 </li>
                 <li className={this.isPathActive('/forms/extended-forms') ? 'active' : null}>
-                  <Link to="/forms/extended-forms">Unit</Link>
+                  <Link to="/forms/extended-forms">Units</Link>
                 </li>
                 <li className={this.isPathActive('/forms/extended-forms') ? 'active' : null}>
-                  <Link to="/forms/extended-forms">Material</Link>
+                  <Link to="/forms/extended-forms">Materials</Link>
                 </li>
                 <li className={this.isPathActive('/forms/extended-forms') ? 'active' : null}>
-                  <Link to="/forms/extended-forms">Label</Link>
+                  <Link to="/forms/extended-forms">Labels</Link>
                 </li>
               </ul>
             </div>
