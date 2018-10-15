@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { BootstrapTable, TableHeaderColumn, InsertModalFooter,ClearSearchButton} from 'react-bootstrap-table';
 import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
-import generateData from '../generateData';
+import generateData from './generateData';
 
 const data = generateData(1000);
 
-class ReactBootstrapTable extends Component {
+class Dryer extends Component {
 
   state = {
     column: [],
-    tableName: "Cloth Categories",
-    tableDesc: "The type of clothes. Using for sort cloths",
+    tableName: "Dryer",
+    tableDesc: "All the dryers are managed here",
     data: generateData(20, false)
   };
 
@@ -100,6 +100,13 @@ class ReactBootstrapTable extends Component {
     const tableDesc = this.state.tableDesc;
     function onAfterDeleteRow(rowKeys) {
       alert('The rowkey you drop: ' + rowKeys);
+    };
+    function buttonFormatter(cell, row){
+      
+      return "<button class='btn btn-primary btn-sm btn-fill btn-linkedin'><i class='pe-7s-note'></i>&nbsp; Edit</button>";
+    };
+    function imageFormatter(cell, row){
+      return "<img src='"+row.image+"'></img>";
     }
     const selectRowProp = {
       mode: 'checkbox',
@@ -118,9 +125,9 @@ class ReactBootstrapTable extends Component {
       deleteBtn: this.createCustomDeleteButton,
       insertBtn: this.createCustomInsertButton,
       clearSearchBtn: this.createCustomClearButton,
-      onRowClick: function(row) {
-        alert(`You click row id: ${row.id}`);
-      },
+      // onRowClick: function(row) {
+      //   alert(`You click row id: ${row.id}`);
+      // },
     };
 
     return (
@@ -133,8 +140,9 @@ class ReactBootstrapTable extends Component {
                 <h4>{tableName}</h4>
                 <p>{tableDesc}</p>
               </div>
-              <div className="content">
+              <div className="content table-responsive table-full-width">
                 <BootstrapTable
+                  className=""
                   data={data}
                   bordered={false}
                   striped
@@ -143,37 +151,58 @@ class ReactBootstrapTable extends Component {
                   search={ true } multiColumnSearch={ true }
                   deleteRow={ true } selectRow={ selectRowProp }
                   pagination={true}
+              
                   options={options}>
                   <TableHeaderColumn
                     dataField='sn'
-                    width="10%"
+                    width="6%"
                     hiddenOnInsert="true"
                     >
                     S/N
                   </TableHeaderColumn>
                   <TableHeaderColumn
                     dataField='id'
-                    width="25%"
                     hiddenOnInsert="true"
                     hidden
                     dataSort>
-                    Cloth Category Id
+                    Dryer Id
                   </TableHeaderColumn>
                   <TableHeaderColumn
-                    dataField='name'
-                    width="100%"
+                    dataField='code'
+                    width="10%"
                     isKey
-
                     dataSort>
-                    Cloth Category Name
+                    Dryer Code
+                  </TableHeaderColumn>
+                  <TableHeaderColumn
+                    dataField='branch'
+                    width="20%"
+                    editable={ { type: 'select', options: { className:"custom-control-input", values:["Branch 1", "Branch 1"] } }}
+                    >
+                    Branch
+                  </TableHeaderColumn>
+                  <TableHeaderColumn
+                    dataField='bought_date'
+                    editable={ { type: 'date', options: { className:"custom-control-input" } }}
+                    width="15%"
+                    dataSort>
+                    Date Bought
                   </TableHeaderColumn>
                   <TableHeaderColumn
                     dataField='status'
                     editable={ { type: 'checkbox', options: { className:"custom-control-input", values: 'active:inactive' } }}
-                    width="15%"
+                    width="10%"
                     dataSort>
                     Status
                   </TableHeaderColumn>
+                  <TableHeaderColumn 
+                      dataField='action' 
+                      hiddenOnInsert="true"
+                      width="10%"
+                      dataFormat={buttonFormatter}
+                      export={ false }
+                  >
+                  Action</TableHeaderColumn>
                 </BootstrapTable>
               </div>
             </div>
@@ -184,4 +213,4 @@ class ReactBootstrapTable extends Component {
     );
   }
 }
-export default ReactBootstrapTable
+export default Dryer;

@@ -31,7 +31,7 @@ const CreateClothCategory = () => (
               component={renderField} />
           </div>
         </div>
-        <button type="submit" className="btn btn-fill btn-info" disabled={submitting}>Save</button>
+        <button type="submit" className="btn btn-fill btn-info" >Save</button>
       </form>
     </div>
   </div>

@@ -8,14 +8,20 @@ export default (limit = 5, arrayData = false) => {
       row = [
         i,
         faker.company.findName(),
-        faker.random.boolean()
+        faker.random.boolean(),
+        faker.lorem.text(),
+        "<button class='btn btn-info'>Action</button>"
       ];
     } else {
       row = {
         sn: i,
-        id: i+1000,
+        id: (i+1000),
         name: faker.name.findName(),
-        status: faker.random.boolean()?"Active":"Inactive"
+        category: faker.commerce.productAdjective(),
+        desc: faker.lorem.text(),
+        status: faker.random.boolean()?"Active":"Inactive",
+        action: "",
+        image: faker.image.food(50,50)
       };
     }
     data.push(row);

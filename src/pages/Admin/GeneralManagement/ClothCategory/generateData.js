@@ -13,7 +13,7 @@ export default (limit = 5, arrayData = false) => {
     } else {
       row = {
         sn: i,
-        id: i+1000,
+        id: (i+1000),
         name: faker.name.findName(),
         status: faker.random.boolean()?"Active":"Inactive"
       };

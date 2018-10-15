@@ -17,7 +17,7 @@ class Nav extends Component {
             <p>Dashboard</p>
           </Link>
         </li>
-        <li className={this.isPathActive('/components') || this.state.componentMenuOpen ? 'active' : null}>
+        <li className={this.state.componentMenuOpen ? 'active' : null}>
           <a onClick={() => this.setState({ componentMenuOpen: !this.state.componentMenuOpen })}
             data-toggle="collapse">
             <i className="pe-7s-plugin"></i>
@@ -29,21 +29,21 @@ class Nav extends Component {
           <Collapse in={this.state.componentMenuOpen}>
             <div>
               <ul className="nav">
-                <li className={this.isPathActive('/components/buttons') ? 'active' : null}>
-                  <Link to="/components/buttons">Cloths Categories</Link>
+                <li className={this.isPathActive('/admin/general-management/cloth-category') ? 'active' : null}>
+                  <Link to="/admin/general-management/cloth-category">Cloths Categories</Link>
                 </li>
-                <li className={this.isPathActive('/components/grid') ? 'active' : null}>
-                  <Link to="/components/grid">Clothes</Link>
+                <li className={this.isPathActive('/admin/general-management/cloth-list') ? 'active' : null}>
+                  <Link to="/admin/general-management/cloth-list">Clothes</Link>
                 </li>
-                <li className={this.isPathActive('/components/icons') ? 'active' : null}>
-                  <Link to="/components/icons">Washer</Link>
+                <li className={this.isPathActive('/admin/general-management/washer-list') ? 'active' : null}>
+                  <Link to="/admin/general-management/washer-list">Washer</Link>
                 </li>
-                <li className={this.isPathActive('/components/notifications') ? 'active' : null}>
-                  <Link to="/components/notifications">Dryer</Link>
+                <li className={this.isPathActive('/admin/general-management/dryer-list') ? 'active' : null}>
+                  <Link to="/admin/general-management/dryer-list">Dryer</Link>
                 </li>
-                <li className={this.isPathActive('/components/panels') ? 'active' : null}>
+                {/* <li className={this.isPathActive('/components/panels') ? 'active' : null}>
                   <Link to="/components/panels">Panels</Link>
-                </li>
+                </li> */}
                 {/* <li className={this.isPathActive('/components/sweetalert') ? 'active' : null}>
                   <Link to="/components/sweetalert">Sweet Alert</Link>
                 </li> */}
@@ -142,7 +142,7 @@ class Nav extends Component {
           </Collapse>
         </li> */}
         
-        {/* <li className={this.isPathActive('/maps') || this.state.mapMenuOpen ? 'active' : null}>
+       <li className={this.isPathActive('/maps') || this.state.mapMenuOpen ? 'active' : null}>
           <a onClick={() => this.setState({ mapMenuOpen: !this.state.mapMenuOpen })} data-toggle="collapse">
             <i className="pe-7s-map-marker"></i>
             <p>Map <b className="caret"></b></p>
@@ -159,7 +159,7 @@ class Nav extends Component {
               </ul>
             </div>
           </Collapse>
-        </li> */}
+        </li>
         <li className={this.isPathActive('/charts') ? 'active' : null}>
           <Link to="/charts">
             <i className="pe-7s-help1"></i>

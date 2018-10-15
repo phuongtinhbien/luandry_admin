@@ -22,6 +22,8 @@ import Charts from '../Charts';
 import Calendar from '../Calendar';
 import Tables from '../Tables';
 
+import Admins from '../Admin';
+
 const Main = ({
   mobileNavVisibility,
   hideMobileMenu,
@@ -51,6 +53,7 @@ const Main = ({
           <Route path="/charts" component={Charts} />
           <Route path="/calendar" component={Calendar} />
           <Route path="/userProfile" component={UserProfile} />
+          <Route path="/admin" component={Admins} />
           <Footer />
         </div>
       </div>
