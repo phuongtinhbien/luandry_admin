@@ -44,6 +44,7 @@ const Main = ({
 
         <div className="main-panel">
           <Header />
+     
           <Route exact path="/" component={Dashboard} />
           <Route path="/components" component={Components} />
           <Route path="/profile" component={UserProfile} />

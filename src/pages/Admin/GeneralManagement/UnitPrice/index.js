@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
 import { BootstrapTable, TableHeaderColumn, InsertModalFooter,ClearSearchButton} from 'react-bootstrap-table';
 import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 import generateData from './generateData';
 
 const data = generateData(1000);
 
-class ServiceManagement extends Component {
+class UnitPrice extends Component {
+
   state = {
     column: [],
-    tableName: "Service Management",
-    tableDesc: "Manage all service in system.",
+    tableName: "Unit Price",
+    tableDesc: "",
     data: generateData(20, false)
   };
 
@@ -71,12 +71,12 @@ class ServiceManagement extends Component {
 
     createCustomInsertButton = (openModal) => {
       return (
-      <Link className="btn btn-primary btn-fill btn-wd" to='/admin/service-create' >
-          <span className="btn-label">
-            <i className="pe-7s-plus"></i> &nbsp;
-            Create New
-          </span> 
-      </Link>
+        <button type="button" className="btn btn-primary btn-fill btn-wd" onClick={ openModal }>
+        <span className="btn-label">
+          <i className="pe-7s-plus"></i> &nbsp;
+          Create New
+        </span> 
+      </button>
         
       );
     }
@@ -98,7 +98,6 @@ class ServiceManagement extends Component {
     const { data } = this.state;
     const tableName = this.state.tableName;
     const tableDesc = this.state.tableDesc;
-  
     function onAfterDeleteRow(rowKeys) {
       alert('The rowkey you drop: ' + rowKeys);
     };
@@ -106,13 +105,9 @@ class ServiceManagement extends Component {
       
       return "<button class='btn btn-primary btn-sm btn-fill btn-linkedin'><i class='pe-7s-note'></i>&nbsp; Edit</button>";
     };
-    function ImageEditor(cell, row){
-      
-      return "<button class='btn btn-primary btn-sm btn-fill btn-linkedin'><i class='pe-7s-note'></i>&nbsp; Edit</button>";
-    };
     function imageFormatter(cell, row){
       return "<img src='"+row.image+"'></img>";
-    };
+    }
     const selectRowProp = {
       mode: 'checkbox',
     };
@@ -171,40 +166,44 @@ class ServiceManagement extends Component {
                     hidden
                     
                     dataSort>
-                    Service Type Id
+                    Unit Price Id
                   </TableHeaderColumn>
                   <TableHeaderColumn
-                    dataField='branch'
+                    dataField='store'
                     editable={ { type: 'select', options: { className:"custom-control-input", values:[{text: "Category 1", value: 123},{text: "Category 2", value: 456}] } }}
                     dataSort>
-                    Branch 
+                    Store
                   </TableHeaderColumn>
                   <TableHeaderColumn
-                    dataField='service'
-                    width="40%"
+                    dataField='product'
+                    width="20%"
                     isKey
-                    
+                    editable={ { type: 'select', options: { className:"custom-control-input", values:[{text: "Category 1", value: 123},{text: "Category 2", value: 456}] } }}
                     dataSort>
-                    Service's Name
+                    Cloth's Name
                   </TableHeaderColumn>
                   <TableHeaderColumn
-                    dataField='service_image'
-                    width="40%"
-                    hidden
-                    editable={ { type: 'file', options: { className:"custom-control-input", values: 'active:inactive' } }}
+                    dataField='serviceType'
+                    width="15%"
+                    
+                    editable={ { type: 'select', options: { className:"custom-control-input", values:[{text: "Category 1", value: 123},{text: "Category 2", value: 456}] } }}
                     dataSort>
-                    Service's Image
+                    Service Type
                   </TableHeaderColumn>
                   <TableHeaderColumn
-                    dataField='service_desc'
-                    width="40%"
-                    
-                    editable={ { type: 'textarea', options: { className:"custom-control-input" } }}
-                    hidden
-                    dataSort>
-                    Service's Description
+                    dataField='unit'
+                    width="5%"
+                    editable={ { type: 'select', options: { className:"custom-control-input", values:[{text: "Category 1", value: 123},{text: "Category 2", value: 456}] } }}
+                    >
+                    Unit
                   </TableHeaderColumn>
-           
+                  <TableHeaderColumn
+                    dataField='applyDate'
+                    editable={ { type: 'date', options: { className:"custom-control-input" } }}
+                    width="15%"
+                    dataSort>
+                    Apply Date
+                  </TableHeaderColumn>
                   <TableHeaderColumn
                     dataField='status'
                     editable={ { type: 'checkbox', options: { className:"custom-control-input", values: 'active:inactive' } }}
@@ -230,4 +229,4 @@ class ServiceManagement extends Component {
     );
   }
 }
-export default ServiceManagement;
+export default UnitPrice;

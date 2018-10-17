@@ -4,6 +4,7 @@ import ClothCategory from './ClothCategory';
 import ListCloth from './Clothes';
 import Dryer from './Dryer';
 import Washer from './Washer';
+import UnitPrice from './UnitPrice';
 
 const GeneralManagement = ({match}) => (
 
@@ -12,6 +13,7 @@ const GeneralManagement = ({match}) => (
         <Route path={`${match.url}/cloth-list`} component={ListCloth} />
         <Route path={`${match.url}/dryer-list`} component={Dryer} />
         <Route path={`${match.url}/washer-list`} component={Washer} />
+        <Route path={`${match.url}/unitprice-list`} component={UnitPrice} />
     </div>
 );
 
